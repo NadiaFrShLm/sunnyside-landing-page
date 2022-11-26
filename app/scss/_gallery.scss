@@ -1,0 +1,14 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+
+  @include breakpoint-up(medium) {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+
+  source,
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

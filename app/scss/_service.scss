@@ -1,0 +1,104 @@
+.service {
+  @include breakpoint-up(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50rem);
+
+    @include breakpoint-up(large) {
+      grid-template-rows: repeat(2, 60rem);
+    }
+  }
+
+  &__box {
+    &--1 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    &--2 {
+      grid-column: 2/-1;
+      grid-row: 1/2;
+    }
+  }
+
+  &__img {
+    height: 31rem;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &--1 {
+      background-image: url(/images/mobile/image-transform.jpg);
+
+      @include breakpoint-up(medium) {
+        height: auto;
+        background-image: url(/images/desktop/image-transform.jpg);
+      }
+    }
+    &--2 {
+      background-image: url(/images/mobile/image-stand-out.jpg);
+
+      @include breakpoint-up(medium) {
+        height: auto;
+        background-image: url(/images/desktop/image-stand-out.jpg);
+      }
+    }
+  }
+  &__text {
+    height: 43.5rem;
+    text-align: center;
+    @include paddingX(3rem);
+    @include flex(center);
+
+    @include breakpoint-up(medium) {
+      @include paddingX(4rem);
+      height: auto;
+    }
+    @include breakpoint-up(large) {
+      @include paddingX(11rem);
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+  &__header {
+    font-size: 3rem;
+    color: $VeryDarkBlue;
+    margin-bottom: 2.8rem;
+  }
+  &__description {
+    line-height: 1.6;
+    color: $DarkGrayishBlue;
+    margin-bottom: 4rem;
+  }
+  &__btn {
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-family: 'Fraunces', serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $VeryDarkBlue;
+    position: relative;
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 1rem;
+      position: absolute;
+      top: 1.5rem;
+      left: 0;
+      transform: rotate(-1deg) scaleX(1.1);
+      opacity: 0.3;
+      border-radius: 10rem;
+    }
+    &--yellow::after {
+      background-color: $Yellow;
+    }
+    &--rose::after {
+      background-color: $SoftRed;
+    }
+  }
+}

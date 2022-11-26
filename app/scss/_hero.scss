@@ -1,0 +1,38 @@
+.hero {
+  background-image: url(/images/mobile/image-header.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 53rem;
+  margin-top: -8rem;
+
+  @include breakpoint-up(medium) {
+    background-image: url(/images/desktop/image-header.jpg);
+    height: 80rem;
+    margin-top: -12rem;
+  }
+  h1 {
+    font-size: 3.8rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $White;
+    padding-top: 14rem;
+    padding-bottom: 5rem;
+
+    @include breakpoint-up(medium) {
+      font-size: 5.5rem;
+      letter-spacing: 12px;
+      padding-top: 20rem;
+      padding-bottom: 9rem;
+    }
+  }
+  &__arrow {
+    display: block;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transform: translateY(10rem);
+    }
+  }
+}
